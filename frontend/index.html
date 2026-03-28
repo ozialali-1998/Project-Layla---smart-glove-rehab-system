@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Glove Angle Dashboard</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <header class="dashboard-header">
+        <div>
+          <h1>Smart Glove Flex Angle</h1>
+          <p>Live WebSocket stream from Arduino</p>
+        </div>
+        <span id="connectionStatus" class="status disconnected">Disconnected</span>
+      </header>
+
+      <section class="angle-panel">
+        <div class="angle-layout">
+          <div>
+            <p class="label">Current Angle</p>
+            <p id="angleValue" class="angle-value">--°</p>
+
+            <div class="progress-wrap">
+              <div id="angleProgress" class="progress-fill" role="progressbar" aria-valuemin="0" aria-valuemax="180" aria-valuenow="0"></div>
+            </div>
+            <p class="range-text">0° to 180°</p>
+
+            <div class="control-group">
+              <p class="label">Control</p>
+              <div class="button-row">
+                <button id="startBtn" class="control-btn start">START</button>
+                <button id="stopBtn" class="control-btn stop">STOP</button>
+              </div>
+              <p id="commandStatus" class="command-status">Command status: --</p>
+            </div>
+          </div>
+
+          <div class="finger-sim-wrap">
+            <p class="label">Finger Simulation</p>
+            <div class="finger-stage" aria-label="Finger angle simulation">
+              <div class="palm"></div>
+              <div id="fingerRoot" class="finger-root">
+                <div class="segment segment-1"></div>
+                <div class="segment segment-2"></div>
+                <div class="segment segment-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="chart-panel">
+        <div class="chart-header">
+          <h2>Angle Trend (Last 20 points)</h2>
+          <p id="lastUpdated">Last update: --</p>
+        </div>
+        <canvas id="angleChart" width="900" height="280" aria-label="Flex angle line chart"></canvas>
+      </section>
+    </main>
+
+    <script src="./js/app.js"></script>
+  </body>
+</html>

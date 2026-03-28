@@ -1,0 +1,258 @@
+:root {
+  --bg: #f5f7fb;
+  --card: #ffffff;
+  --text: #1e2a3b;
+  --muted: #64748b;
+  --accent: #2563eb;
+  --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.dashboard {
+  max-width: 960px;
+  margin: 2rem auto;
+  padding: 0 1rem 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+}
+
+.dashboard-header p {
+  margin: 0.35rem 0 0;
+  color: var(--muted);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 118px;
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.status.connected {
+  background: rgba(16, 185, 129, 0.14);
+  color: #047857;
+}
+
+.status.disconnected {
+  background: rgba(239, 68, 68, 0.12);
+  color: #b91c1c;
+}
+
+.angle-panel,
+.chart-panel {
+  background: var(--card);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 1.25rem;
+}
+
+.angle-panel {
+  margin-bottom: 1rem;
+}
+
+.angle-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.label {
+  margin: 0;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.angle-value {
+  margin: 0.35rem 0 0.85rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.progress-wrap {
+  width: 100%;
+  height: 14px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #60a5fa, var(--accent));
+  transition: width 0.18s ease;
+}
+
+.range-text {
+  margin: 0.6rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+
+.control-group {
+  margin-top: 1rem;
+}
+
+.button-row {
+  margin-top: 0.45rem;
+  display: flex;
+  gap: 0.6rem;
+}
+
+.control-btn {
+  border: none;
+  border-radius: 10px;
+  padding: 0.55rem 1rem;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, opacity 0.15s ease;
+}
+
+.control-btn:hover {
+  transform: translateY(-1px);
+}
+
+.control-btn:active {
+  transform: translateY(0);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn.start {
+  background: #16a34a;
+}
+
+.control-btn.stop {
+  background: #dc2626;
+}
+
+.command-status {
+  margin: 0.55rem 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.finger-sim-wrap {
+  min-height: 200px;
+}
+
+.finger-stage {
+  margin-top: 0.8rem;
+  position: relative;
+  height: 190px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.palm {
+  position: absolute;
+  left: 18px;
+  bottom: 32px;
+  width: 110px;
+  height: 78px;
+  border-radius: 22px;
+  background: #cbd5e1;
+  box-shadow: inset 0 -6px 0 rgba(30, 41, 59, 0.14);
+}
+
+.finger-root {
+  --finger-rot: 0deg;
+  position: absolute;
+  left: 98px;
+  bottom: 92px;
+  width: 26px;
+  height: 84px;
+  transform-origin: bottom center;
+  transform: rotate(calc(var(--finger-rot) * -1));
+  transition: transform 80ms linear;
+}
+
+.segment {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  background: linear-gradient(180deg, #e2e8f0, #94a3b8);
+  border: 1px solid rgba(30, 41, 59, 0.12);
+  border-radius: 12px;
+}
+
+.segment-1 {
+  bottom: 0;
+  height: 34px;
+}
+
+.segment-2 {
+  bottom: 30px;
+  height: 30px;
+  width: 22px;
+}
+
+.segment-3 {
+  bottom: 56px;
+  height: 26px;
+  width: 20px;
+}
+
+.chart-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+
+.chart-header h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.chart-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+#angleChart {
+  width: 100%;
+  display: block;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}

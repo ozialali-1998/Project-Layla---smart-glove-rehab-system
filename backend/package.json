@@ -1,0 +1,21 @@
+{
+  "name": "smart-glove-backend",
+  "version": "1.0.0",
+  "description": "Backend server for smart glove IoT system",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "serialport": "^12.0.0",
+    "ws": "^8.18.1",
+    "@serialport/parser-readline": "^12.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
